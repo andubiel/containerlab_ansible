@@ -1,0 +1,23 @@
+cisco_spines:
+  hosts:
+    - change1:
+    - chnage2:
+  vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_user: admin
+    ansible_password: admin
+    ansible_connection: ansible.netcommon.network_cli
+cisco_leafs:
+  hosts:
+    - change1:
+    - change2:
+  vars:
+    ansible_user: admin
+    ansible_password: cisco
+    ansible_network_os: cisco.ios.ios
+    ansible_connection: ansible.netcommon.network_cli
+
+cisco_evpn:
+  children:
+    cisco_spines:
+    cisco_leafs:
