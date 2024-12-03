@@ -1,0 +1,16 @@
+name: evpn
+topology:
+  nodes:
+    cat9kv_spine1:
+      kind: cisco_cat9kv
+      image: vrnetlab/cisco_cat9kv:17.12.01p
+    cat9kv_leaf1:
+      kind: cisco_cat9kv
+      image: vrnetlab/cisco_cat9kv:17.12.01p
+    cat9kv_leaf2:
+      kind: cisco_cat9kv
+      image: vrnetlab/cisco_cat9kv:17.12.01p
+    
+  links:
+    - endpoints: ["cat9kv_spine1:Gi1/0/1","cat9kv_leaf1:GigabitEthernet1/0/1"] 
+    - endpoints: ["cat9kv_spine1:Gi1/0/2","cat9kv_leaf2:GigabitEthernet1/0/1"]
